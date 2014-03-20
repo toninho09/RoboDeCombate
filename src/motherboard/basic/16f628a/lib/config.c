@@ -22,8 +22,8 @@ B7 = USE MOTOR_3
    tem a funçao de evitar statica e recebimento indevido
 
 */
-#define msg_valid_1 0xf0;
-#define msg_valid_2 0x20;
+const int msg_valid_1 = 0xf0;
+const int msg_valid_2 = 0x20;
 //estrutura para facilitar o uso dos pinos em funções
 struct MotorPin
 {

@@ -1,4 +1,2 @@
-*** Error 58 "C:\Users\Zenner\SkyDrive\RDC\RoboDeCombate\src\motherboard\basic\16f628a\lib\comand.c" Line 33(27,28): Expecting a close paren
-*** Error 51 "C:\Users\Zenner\SkyDrive\RDC\RoboDeCombate\src\motherboard\basic\16f628a\lib\comand.c" Line 33(27,28): A numeric expression must appear here
-*** Error 51 "C:\Users\Zenner\SkyDrive\RDC\RoboDeCombate\src\motherboard\basic\16f628a\lib\comand.c" Line 33(53,54): A numeric expression must appear here
-      3 Errors,  0 Warnings.
+      Memory usage:   ROM=26%      RAM=12% - 17%
+      0 Errors,  0 Warnings.

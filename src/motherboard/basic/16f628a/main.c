@@ -18,24 +18,13 @@ void main()
    enable_interrupts(INT_TIMER1);
    enable_interrupts(GLOBAL);
    config();
+   cmd[0]=msg_valid_1;
+   cmd[1]=msg_valid_2;
+   cmd[2]=0;
    while(true){
-   
-   moverMotor(motorpin[0],0);
-   moverMotor(motorpin[0],1);
-   moverMotor(motorpin[0],2);
-   moverMotor(motorpin[0],3);
-   moverMotor(motorpin[1],0);
-   moverMotor(motorpin[1],1);
-   moverMotor(motorpin[1],2);
-   moverMotor(motorpin[1],3);
-   moverMotor(motorpin[2],0);
-   moverMotor(motorpin[2],1);
-   moverMotor(motorpin[2],2);
-   moverMotor(motorpin[2],3);
-   moverMotor(motorpin[3],0);
-   moverMotor(motorpin[3],1);
-   moverMotor(motorpin[3],2);
-   moverMotor(motorpin[3],3);
+   cmd[2]++;
+   verificaComando(cmd);
+   delay_ms(100);
   // output_toggle(led);
    }
 //Setup_Oscillator parameter not selected from Intr Oscillator Config tab

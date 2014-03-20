@@ -1,49 +1,54 @@
 
-ROM used: 339 (17%)
-          339 (17%) including unused fragments
+ROM used: 533 (26%)
+          533 (26%) including unused fragments
 
           1 Average locations per line
-          7 Average locations per statement
+          6 Average locations per statement
 
-RAM used: 17 (8%) at main() level
-          24 (11%) worst case
+RAM used: 27 (12%) at main() level
+          38 (17%) worst case
 
-Stack used: 2 worst case (out of 8 total available)
+Stack used: 4 worst case (out of 7 total available)
 
 Lines Stmts  %   Files
 ----- ----- ---  -----
-   39    25  50  main.c
+   35    17  18  main.c
    15     0   0  main.h
   207     0   0  F:\PICC\devices\16F628A.h
-   49     8  16  lib\config.c
-   35    17  34  lib\comand.c
+   57     8   9  lib\config.c
+   87    68  73  lib\comand.c
 ----- -----
-  345    50 Total
+  401    93 Total
 
 Page ROM  %  RAM   Vol Diff  Functions:
 ---- --- --- ---   --- ----  ----------
-0     17   5   0   351  2.8  config
-0    119  35   3   461  4.3  moverMotor
-0     32   9   6   183  2.7  @WRITEBITA
-0      8   2   0  1084  3.4  @goto10048
-0    159  47   0  1084  3.4  MAIN
+0     21   4   1             @delay_ms1
+0     17   3   0   351  2.8  config
+0    119  22   3   461  4.3  moverMotor
+0     32   6   6   660  5.1  @WRITEBITA
+0      8   2   0             @goto10052
+0    156  29   4  1682  5.9  verificaComando
+0     56  11   0  1131  3.4  @goto10114
+0      8   2   0    20  1.1  TIMER1_isr
+0     63  12   0   420  4.3  MAIN
 
 Program metrics:
-    Functions               5
-    Statements              50
-    Comments                89
-    Volume (V)              4281
-    Difficilty (D)          16.8
-    Effort to implement (E) 71986
-    Time to implement (T)   1 hours, 7 minutes
+    Functions               7
+    Statements              93
+    Comments                96
+    Volume (V)              6684
+    Difficilty (D)          27.2
+    Effort to implement (E) 181568
+    Time to implement (T)   2 hours, 48 minutes
     Est Delivered Bugs (B)  1
-    Cyclomatic Complexity   4
-    Maintainability (MI)    111
+    Cyclomatic Complexity   38
+    Maintainability (MI)    66
 
  Segment     Used  Free
 -----------  ----  ----
 00000-00003     4  0  
-00004-007FF   335  1709  
+00004-00034    49  0  
+00035-007FF   480  1515  
 
 
 

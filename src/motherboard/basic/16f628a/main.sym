@@ -1,15 +1,16 @@
 004-005 @READ_PROGRAM_MEMORY8.P1
-015     CCP_1_LOW
 015-016 CCP_1
+015     CCP_1_LOW
 016     CCP_1_HIGH
 01F.6   C1OUT
 01F.7   C2OUT
 020-027 MotorPin
-028-029 moverMotor.MotorPin
-02A     moverMotor.comando
-02B     @WRITEBITA.P1
-02C     @WRITEBITA.P1
-02D-02E @WRITEBITA.P1
+028-02A cmd
+02B-02C moverMotor.MotorPin
+02D     moverMotor.comando
+02E     @WRITEBITA.P1
+02F     @WRITEBITA.P1
+030-031 @WRITEBITA.P1
 077     @SCRATCH
 078     @SCRATCH
 078     _RETURN_
@@ -22,7 +23,7 @@ ROM Allocation:
 0004  config
 0035  moverMotor
 0015  @WRITEBITA
-00AC  @goto10046
+00AC  @goto10048
 00B4  MAIN
 00B4  @cinit
 

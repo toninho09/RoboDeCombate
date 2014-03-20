@@ -1,9 +1,9 @@
 ÀÄmain
-   ÀÄMAIN  0/154  Ram=0
+   ÀÄMAIN  0/159  Ram=0
       ÃÄ??0??
       ÃÄconfig  0/17  Ram=0
       ÃÄmoverMotor  0/119  Ram=3
-      ³  ÃÄ@goto10046  0/8  Ram=0
+      ³  ÃÄ@goto10048  0/8  Ram=0
       ³  ÃÄ@WRITEBITA  0/32  Ram=6
       ³  ÃÄ@WRITEBITA  0/32  Ram=6
       ³  ÃÄ@WRITEBITA  0/32  Ram=6
@@ -21,7 +21,7 @@
       ³  ÃÄ@WRITEBITA  0/32  Ram=6
       ³  ÀÄ@WRITEBITA  0/32  Ram=6
       ÃÄmoverMotor  0/119  Ram=3
-      ³  ÃÄ@goto10046  0/8  Ram=0
+      ³  ÃÄ@goto10048  0/8  Ram=0
       ³  ÃÄ@WRITEBITA  0/32  Ram=6
       ³  ÃÄ@WRITEBITA  0/32  Ram=6
       ³  ÃÄ@WRITEBITA  0/32  Ram=6
@@ -39,7 +39,7 @@
       ³  ÃÄ@WRITEBITA  0/32  Ram=6
       ³  ÀÄ@WRITEBITA  0/32  Ram=6
       ÃÄmoverMotor  0/119  Ram=3
-      ³  ÃÄ@goto10046  0/8  Ram=0
+      ³  ÃÄ@goto10048  0/8  Ram=0
       ³  ÃÄ@WRITEBITA  0/32  Ram=6
       ³  ÃÄ@WRITEBITA  0/32  Ram=6
       ³  ÃÄ@WRITEBITA  0/32  Ram=6
@@ -57,7 +57,7 @@
       ³  ÃÄ@WRITEBITA  0/32  Ram=6
       ³  ÀÄ@WRITEBITA  0/32  Ram=6
       ÃÄmoverMotor  0/119  Ram=3
-      ³  ÃÄ@goto10046  0/8  Ram=0
+      ³  ÃÄ@goto10048  0/8  Ram=0
       ³  ÃÄ@WRITEBITA  0/32  Ram=6
       ³  ÃÄ@WRITEBITA  0/32  Ram=6
       ³  ÃÄ@WRITEBITA  0/32  Ram=6
@@ -75,7 +75,7 @@
       ³  ÃÄ@WRITEBITA  0/32  Ram=6
       ³  ÀÄ@WRITEBITA  0/32  Ram=6
       ÃÄmoverMotor  0/119  Ram=3
-      ³  ÃÄ@goto10046  0/8  Ram=0
+      ³  ÃÄ@goto10048  0/8  Ram=0
       ³  ÃÄ@WRITEBITA  0/32  Ram=6
       ³  ÃÄ@WRITEBITA  0/32  Ram=6
       ³  ÃÄ@WRITEBITA  0/32  Ram=6
@@ -93,7 +93,7 @@
       ³  ÃÄ@WRITEBITA  0/32  Ram=6
       ³  ÀÄ@WRITEBITA  0/32  Ram=6
       ÃÄmoverMotor  0/119  Ram=3
-      ³  ÃÄ@goto10046  0/8  Ram=0
+      ³  ÃÄ@goto10048  0/8  Ram=0
       ³  ÃÄ@WRITEBITA  0/32  Ram=6
       ³  ÃÄ@WRITEBITA  0/32  Ram=6
       ³  ÃÄ@WRITEBITA  0/32  Ram=6
@@ -111,7 +111,7 @@
       ³  ÃÄ@WRITEBITA  0/32  Ram=6
       ³  ÀÄ@WRITEBITA  0/32  Ram=6
       ÃÄmoverMotor  0/119  Ram=3
-      ³  ÃÄ@goto10046  0/8  Ram=0
+      ³  ÃÄ@goto10048  0/8  Ram=0
       ³  ÃÄ@WRITEBITA  0/32  Ram=6
       ³  ÃÄ@WRITEBITA  0/32  Ram=6
       ³  ÃÄ@WRITEBITA  0/32  Ram=6
@@ -129,7 +129,7 @@
       ³  ÃÄ@WRITEBITA  0/32  Ram=6
       ³  ÀÄ@WRITEBITA  0/32  Ram=6
       ÃÄmoverMotor  0/119  Ram=3
-      ³  ÃÄ@goto10046  0/8  Ram=0
+      ³  ÃÄ@goto10048  0/8  Ram=0
       ³  ÃÄ@WRITEBITA  0/32  Ram=6
       ³  ÃÄ@WRITEBITA  0/32  Ram=6
       ³  ÃÄ@WRITEBITA  0/32  Ram=6
@@ -147,7 +147,7 @@
       ³  ÃÄ@WRITEBITA  0/32  Ram=6
       ³  ÀÄ@WRITEBITA  0/32  Ram=6
       ÃÄmoverMotor  0/119  Ram=3
-      ³  ÃÄ@goto10046  0/8  Ram=0
+      ³  ÃÄ@goto10048  0/8  Ram=0
       ³  ÃÄ@WRITEBITA  0/32  Ram=6
       ³  ÃÄ@WRITEBITA  0/32  Ram=6
       ³  ÃÄ@WRITEBITA  0/32  Ram=6
@@ -165,7 +165,7 @@
       ³  ÃÄ@WRITEBITA  0/32  Ram=6
       ³  ÀÄ@WRITEBITA  0/32  Ram=6
       ÃÄmoverMotor  0/119  Ram=3
-      ³  ÃÄ@goto10046  0/8  Ram=0
+      ³  ÃÄ@goto10048  0/8  Ram=0
       ³  ÃÄ@WRITEBITA  0/32  Ram=6
       ³  ÃÄ@WRITEBITA  0/32  Ram=6
       ³  ÃÄ@WRITEBITA  0/32  Ram=6
@@ -183,7 +183,7 @@
       ³  ÃÄ@WRITEBITA  0/32  Ram=6
       ³  ÀÄ@WRITEBITA  0/32  Ram=6
       ÃÄmoverMotor  0/119  Ram=3
-      ³  ÃÄ@goto10046  0/8  Ram=0
+      ³  ÃÄ@goto10048  0/8  Ram=0
       ³  ÃÄ@WRITEBITA  0/32  Ram=6
       ³  ÃÄ@WRITEBITA  0/32  Ram=6
       ³  ÃÄ@WRITEBITA  0/32  Ram=6
@@ -201,7 +201,7 @@
       ³  ÃÄ@WRITEBITA  0/32  Ram=6
       ³  ÀÄ@WRITEBITA  0/32  Ram=6
       ÃÄmoverMotor  0/119  Ram=3
-      ³  ÃÄ@goto10046  0/8  Ram=0
+      ³  ÃÄ@goto10048  0/8  Ram=0
       ³  ÃÄ@WRITEBITA  0/32  Ram=6
       ³  ÃÄ@WRITEBITA  0/32  Ram=6
       ³  ÃÄ@WRITEBITA  0/32  Ram=6
@@ -219,7 +219,7 @@
       ³  ÃÄ@WRITEBITA  0/32  Ram=6
       ³  ÀÄ@WRITEBITA  0/32  Ram=6
       ÃÄmoverMotor  0/119  Ram=3
-      ³  ÃÄ@goto10046  0/8  Ram=0
+      ³  ÃÄ@goto10048  0/8  Ram=0
       ³  ÃÄ@WRITEBITA  0/32  Ram=6
       ³  ÃÄ@WRITEBITA  0/32  Ram=6
       ³  ÃÄ@WRITEBITA  0/32  Ram=6
@@ -237,7 +237,7 @@
       ³  ÃÄ@WRITEBITA  0/32  Ram=6
       ³  ÀÄ@WRITEBITA  0/32  Ram=6
       ÃÄmoverMotor  0/119  Ram=3
-      ³  ÃÄ@goto10046  0/8  Ram=0
+      ³  ÃÄ@goto10048  0/8  Ram=0
       ³  ÃÄ@WRITEBITA  0/32  Ram=6
       ³  ÃÄ@WRITEBITA  0/32  Ram=6
       ³  ÃÄ@WRITEBITA  0/32  Ram=6
@@ -255,7 +255,7 @@
       ³  ÃÄ@WRITEBITA  0/32  Ram=6
       ³  ÀÄ@WRITEBITA  0/32  Ram=6
       ÃÄmoverMotor  0/119  Ram=3
-      ³  ÃÄ@goto10046  0/8  Ram=0
+      ³  ÃÄ@goto10048  0/8  Ram=0
       ³  ÃÄ@WRITEBITA  0/32  Ram=6
       ³  ÃÄ@WRITEBITA  0/32  Ram=6
       ³  ÃÄ@WRITEBITA  0/32  Ram=6
@@ -273,7 +273,7 @@
       ³  ÃÄ@WRITEBITA  0/32  Ram=6
       ³  ÀÄ@WRITEBITA  0/32  Ram=6
       ÀÄmoverMotor  0/119  Ram=3
-         ÃÄ@goto10046  0/8  Ram=0
+         ÃÄ@goto10048  0/8  Ram=0
          ÃÄ@WRITEBITA  0/32  Ram=6
          ÃÄ@WRITEBITA  0/32  Ram=6
          ÃÄ@WRITEBITA  0/32  Ram=6

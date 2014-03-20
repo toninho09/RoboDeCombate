@@ -1,0 +1,58 @@
+004-005 @READ_PROGRAM_MEMORY8.P1
+015     CCP_1_LOW
+015-016 CCP_1
+016     CCP_1_HIGH
+01F.6   C1OUT
+01F.7   C2OUT
+020-027 MotorPin
+028-029 moverMotor.MotorPin
+02A     moverMotor.comando
+02B     @WRITEBITA.P1
+02C     @WRITEBITA.P1
+02D-02E @WRITEBITA.P1
+077     @SCRATCH
+078     @SCRATCH
+078     _RETURN_
+079     @SCRATCH
+07A     @SCRATCH
+07B     @SCRATCH
+10D-10E @READ_PROGRAM_MEMORY8.P1
+
+ROM Allocation:
+0004  config
+0035  moverMotor
+0015  @WRITEBITA
+00AC  @goto10046
+00B4  MAIN
+00B4  @cinit
+
+Project Directory:
+    C:\Users\Zenner\SkyDrive\RDC\RoboDeCombate\src\motherboard\basic\16f628a\
+
+Project Files:
+    main.c
+    main.h
+    F:\PICC\devices\16F628A.h
+    lib\config.c
+    lib\comand.c
+
+Units:
+    C:\Users\Zenner\SkyDrive\RDC\RoboDeCombate\src\motherboard\basic\16f628a\main.c (main)
+
+Compiler Settings:
+    Processor:      PIC16F628A
+    Pointer Size:   16
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+
+Output Files:
+    Errors:      main.err
+    Ext Symbols: main.esym
+    INHX8:       main.hex
+    Symbols:     main.sym
+    List:        main.lst
+    Debug/COFF:  main.cof
+    Project:     main.PJT
+    Call Tree:   main.tre
+    Statistics:  main.sta

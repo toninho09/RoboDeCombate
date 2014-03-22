@@ -13,17 +13,16 @@
 026     @INTERRUPT_AREA
 027     @INTERRUPT_AREA
 028     @INTERRUPT_AREA
-029-030 MotorPin
-031-034 cmd
-035     @delay_ms1.P1
-035-036 verificaComando.cmd
-037-038 moverMotor.MotorPin
-037     verificaComando.@SCRATCH1
-038     verificaComando.@SCRATCH2
-039     moverMotor.comando
-03A     @WRITEBITA.P1
-03B     @WRITEBITA.P1
-03C-03D @WRITEBITA.P1
+029     @INTERRUPT_AREA
+02A-031 MotorPin
+032-034 cmd
+035     verificaComando.cmd
+035     MAIN.@SCRATCH1
+03F-040 moverMotor.MotorPin
+041     moverMotor.comando
+042     @WRITEBITA.P1
+043     @WRITEBITA.P1
+044-045 @WRITEBITA.P1
 077     @SCRATCH
 078     @SCRATCH
 078     _RETURN_
@@ -33,16 +32,18 @@
 10D-10E @READ_PROGRAM_MEMORY8.P1
 
 ROM Allocation:
-01C1  @delay_ms1
-003D  config
-006E  moverMotor
-004E  @WRITEBITA
-00E5  @goto10052
-00ED  verificaComando
-0189  @goto10114
-0035  TIMER1_isr
-01D6  MAIN
-01D6  @cinit
+00EF  config
+0114  Sync
+0055  moverMotor
+0035  @WRITEBITA
+00CC  @goto10056
+0100  ReceberComando
+011C  verificaComando
+01FF  @goto10131
+00D4  desativarAll
+00D4  TIMER1_isr
+0237  MAIN
+0237  @cinit
 
 Project Directory:
     C:\Users\Zenner\SkyDrive\RDC\RoboDeCombate\src\motherboard\basic\16f628a\

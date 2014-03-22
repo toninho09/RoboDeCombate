@@ -36,7 +36,7 @@ struct MotorPin
 struct Motorpin motorpin[4];
 
 // variavel para armazenar os comandos recebidos do serial;
-int cmd[4];
+int cmd[3];
 
 // constante criada para facilitar a chamada do led no programa
 const int led = PIN_B3;

@@ -43,6 +43,6 @@ route 100 16
 clean 10
 route 100 16
 clean 10
-filter 20
+filter 5
 recorner diagonal
 status_file

@@ -39,7 +39,7 @@ struct Motorpin motorpin[4];
 int cmd[3];
 
 // constante criada para facilitar a chamada do led no programa
-const int led = PIN_B3;
+const int led = PIN_A2;
 
 // função de configuração , não altere se nao souber o que esta fazendo
 void config()

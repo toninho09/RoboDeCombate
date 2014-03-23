@@ -1,6 +1,6 @@
 void Sync()
 {
-   set_timer1(0);
+   set_timer1 (0) ;
 }
 
 void moverMotor(struct Motorpin motorpin,int comando)
@@ -44,7 +44,7 @@ int1 ReceberComando()
       if (cmd[1]==msg_valid_2)//valida o segundo comando
       {
          cmd[2]=getc ();//recebe o comando
-         Sync();
+         Sync () ;
          return 1;
       }
    }
@@ -135,6 +135,61 @@ void verificaComando(int cmd)
       {
          moverMotor (motorpin[3], 3) ;
       }break;
+
+      case 0xA0 :
+      {
+         set_pwm1_duty (0) ;
+      }break;
+
+      case 0xA1 :
+      {
+         set_pwm1_duty (15) ;
+      }break;
+
+      case 0xA2 :
+      {
+         set_pwm1_duty (31) ;
+      }break;
+
+      case 0xA3 :
+      {
+         set_pwm1_duty (46) ;
+      }break;
+
+      case 0xA4 :
+      {
+         set_pwm1_duty (62) ;
+      }break;
+
+      case 0xA5 :
+      {
+         set_pwm1_duty (77) ;
+      }break;
+
+      case 0xA6 :
+      {
+         set_pwm1_duty (93) ;
+      }break;
+
+      case 0xA7 :
+      {
+         set_pwm1_duty (108) ;
+      }break;
+
+      case 0xA8 :
+      {
+         set_pwm1_duty (124) ;
+      }break;
+
+      case 0xA9 :
+      {
+         set_pwm1_duty (139) ;
+      }break;
+
+      case 0xAA :
+      {
+         set_pwm1_duty (156) ;
+      }break;
    }
 }
 
@@ -144,5 +199,6 @@ void desativarAll()
    moverMotor (motorpin[1], 0) ;
    moverMotor (motorpin[2], 0) ;
    moverMotor (motorpin[3], 0) ;
+   set_pwm1_duty (0) ;
 }
 

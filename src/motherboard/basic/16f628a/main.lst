@@ -1,17 +1,17 @@
-CCS PCM C Compiler, Version 4.074, 38112               21-mar-14 22:01
+CCS PCM C Compiler, Version 4.074, 38112               23-mar-14 12:56
 
                Filename: C:\Users\Zenner\SkyDrive\RDC\RoboDeCombate\src\motherboard\basic\16f628a\main.lst
 
-               ROM used: 628 words (31%)
-                         Largest free fragment is 1420
-               RAM used: 28 (12%) at main() level
-                         44 (20%) worst case
-               Stack:    6 worst case (3 in main + 3 for interrupts)
+               ROM used: 567 words (28%)
+                         Largest free fragment is 1481
+               RAM used: 27 (12%) at main() level
+                         36 (16%) worst case
+               Stack:    4 worst case (3 in main + 1 for interrupts)
 
 *
 0000:  MOVLW  00
 0001:  MOVWF  0A
-0002:  GOTO   237
+0002:  GOTO   1F4
 0003:  NOP
 0004:  MOVWF  7F
 0005:  SWAPF  03,W
@@ -42,7 +42,7 @@ CCS PCM C Compiler, Version 4.074, 38112               21-mar-14 22:01
 001E:  BTFSS  00.0
 001F:  GOTO   022
 0020:  BTFSC  0C.0
-0021:  GOTO   0D4
+0021:  GOTO   035
 0022:  MOVF   22,W
 0023:  MOVWF  04
 0024:  MOVF   23,W
@@ -124,47 +124,47 @@ CCS PCM C Compiler, Version 4.074, 38112               21-mar-14 22:01
 .................... int cmd[3]; 
 ....................  
 .................... // constante criada para facilitar a chamada do led no programa 
-.................... const int led = PIN_B3; 
+.................... const int led = PIN_A2; 
 ....................  
 .................... // função de configuração , não altere se nao souber o que esta fazendo 
 .................... void config() 
 .................... { 
 ....................    motorpin[0].pin_enable = PIN_A0; 
 *
-00EF:  MOVLW  28
-00F0:  MOVWF  2A
+0038:  MOVLW  28
+0039:  MOVWF  29
 ....................    motorpin[0].pin_dir = PIN_A1; 
-00F1:  MOVLW  29
-00F2:  MOVWF  2B
+003A:  MOVLW  29
+003B:  MOVWF  2A
 ....................    motorpin[1].pin_enable = PIN_A6; 
-00F3:  MOVLW  2E
-00F4:  MOVWF  2C
+003C:  MOVLW  2E
+003D:  MOVWF  2B
 ....................    motorpin[1].pin_dir = PIN_A7; 
-00F5:  MOVLW  2F
-00F6:  MOVWF  2D
+003E:  MOVLW  2F
+003F:  MOVWF  2C
 ....................    motorpin[2].pin_enable = PIN_B4; 
-00F7:  MOVLW  34
-00F8:  MOVWF  2E
+0040:  MOVLW  34
+0041:  MOVWF  2D
 ....................    motorpin[2].pin_dir = PIN_B5; 
-00F9:  MOVLW  35
-00FA:  MOVWF  2F
+0042:  MOVLW  35
+0043:  MOVWF  2E
 ....................    motorpin[3].pin_enable = PIN_B6; 
-00FB:  MOVLW  36
-00FC:  MOVWF  30
+0044:  MOVLW  36
+0045:  MOVWF  2F
 ....................    motorpin[3].pin_dir = PIN_B7; 
-00FD:  MOVLW  37
-00FE:  MOVWF  31
+0046:  MOVLW  37
+0047:  MOVWF  30
 .................... } 
-00FF:  GOTO   267 (RETURN)
+0048:  GOTO   22A (RETURN)
 ....................  
 ....................  
 .................... #include "lib/comand.c" 
 .................... void Sync() 
 .................... { 
-....................    set_timer1(0); 
+....................    set_timer1 (0) ; 
 *
-0114:  CLRF   0F
-0115:  CLRF   0E
+005D:  CLRF   0F
+005E:  CLRF   0E
 .................... } 
 ....................  
 .................... void moverMotor(struct Motorpin motorpin,int comando) 
@@ -172,542 +172,587 @@ CCS PCM C Compiler, Version 4.074, 38112               21-mar-14 22:01
 ....................    switch (comando) 
 ....................    { 
 *
-0055:  MOVF   41,W
-0056:  ADDLW  FC
-0057:  BTFSC  03.0
-0058:  GOTO   0CB
-0059:  ADDLW  04
-005A:  GOTO   0CC
+0085:  MOVF   37,W
+0086:  ADDLW  FC
+0087:  BTFSC  03.0
+0088:  GOTO   0FB
+0089:  ADDLW  04
+008A:  GOTO   0FC
 ....................       case 0: 
 ....................       { 
 ....................          output_low (motorPin.pin_enable); 
-005B:  MOVF   3F,W
-005C:  MOVWF  42
-005D:  CLRF   43
-005E:  CLRF   45
-005F:  CLRF   44
-0060:  CALL   035
-0061:  MOVF   3F,W
-0062:  MOVWF  42
-0063:  CLRF   43
-0064:  CLRF   45
-0065:  MOVLW  80
-0066:  MOVWF  44
-0067:  CALL   035
+008B:  MOVF   35,W
+008C:  MOVWF  38
+008D:  CLRF   39
+008E:  CLRF   3B
+008F:  CLRF   3A
+0090:  CALL   065
+0091:  MOVF   35,W
+0092:  MOVWF  38
+0093:  CLRF   39
+0094:  CLRF   3B
+0095:  MOVLW  80
+0096:  MOVWF  3A
+0097:  CALL   065
 ....................          output_low (motorPin.pin_dir); 
-0068:  MOVF   40,W
-0069:  MOVWF  42
-006A:  CLRF   43
-006B:  CLRF   45
-006C:  CLRF   44
-006D:  CALL   035
-006E:  MOVF   40,W
-006F:  MOVWF  42
-0070:  CLRF   43
-0071:  CLRF   45
-0072:  MOVLW  80
-0073:  MOVWF  44
-0074:  CALL   035
+0098:  MOVF   36,W
+0099:  MOVWF  38
+009A:  CLRF   39
+009B:  CLRF   3B
+009C:  CLRF   3A
+009D:  CALL   065
+009E:  MOVF   36,W
+009F:  MOVWF  38
+00A0:  CLRF   39
+00A1:  CLRF   3B
+00A2:  MOVLW  80
+00A3:  MOVWF  3A
+00A4:  CALL   065
 ....................       }break; 
-0075:  GOTO   0CB
+00A5:  GOTO   0FB
 ....................  
 ....................       case 1: 
 ....................       { 
 ....................          output_low (motorPin.pin_enable); 
-0076:  MOVF   3F,W
-0077:  MOVWF  42
-0078:  CLRF   43
-0079:  CLRF   45
-007A:  CLRF   44
-007B:  CALL   035
-007C:  MOVF   3F,W
-007D:  MOVWF  42
-007E:  CLRF   43
-007F:  CLRF   45
-0080:  MOVLW  80
-0081:  MOVWF  44
-0082:  CALL   035
+00A6:  MOVF   35,W
+00A7:  MOVWF  38
+00A8:  CLRF   39
+00A9:  CLRF   3B
+00AA:  CLRF   3A
+00AB:  CALL   065
+00AC:  MOVF   35,W
+00AD:  MOVWF  38
+00AE:  CLRF   39
+00AF:  CLRF   3B
+00B0:  MOVLW  80
+00B1:  MOVWF  3A
+00B2:  CALL   065
 ....................          output_high (motorPin.pin_dir); 
-0083:  MOVF   40,W
-0084:  MOVWF  42
-0085:  MOVLW  01
-0086:  MOVWF  43
-0087:  CLRF   45
-0088:  CLRF   44
-0089:  CALL   035
-008A:  MOVF   40,W
-008B:  MOVWF  42
-008C:  CLRF   43
-008D:  CLRF   45
-008E:  MOVLW  80
-008F:  MOVWF  44
-0090:  CALL   035
+00B3:  MOVF   36,W
+00B4:  MOVWF  38
+00B5:  MOVLW  01
+00B6:  MOVWF  39
+00B7:  CLRF   3B
+00B8:  CLRF   3A
+00B9:  CALL   065
+00BA:  MOVF   36,W
+00BB:  MOVWF  38
+00BC:  CLRF   39
+00BD:  CLRF   3B
+00BE:  MOVLW  80
+00BF:  MOVWF  3A
+00C0:  CALL   065
 ....................       }break; 
-0091:  GOTO   0CB
+00C1:  GOTO   0FB
 ....................  
 ....................       case 2: 
 ....................       { 
 ....................          output_high (motorPin.pin_enable); 
-0092:  MOVF   3F,W
-0093:  MOVWF  42
-0094:  MOVLW  01
-0095:  MOVWF  43
-0096:  CLRF   45
-0097:  CLRF   44
-0098:  CALL   035
-0099:  MOVF   3F,W
-009A:  MOVWF  42
-009B:  CLRF   43
-009C:  CLRF   45
-009D:  MOVLW  80
-009E:  MOVWF  44
-009F:  CALL   035
+00C2:  MOVF   35,W
+00C3:  MOVWF  38
+00C4:  MOVLW  01
+00C5:  MOVWF  39
+00C6:  CLRF   3B
+00C7:  CLRF   3A
+00C8:  CALL   065
+00C9:  MOVF   35,W
+00CA:  MOVWF  38
+00CB:  CLRF   39
+00CC:  CLRF   3B
+00CD:  MOVLW  80
+00CE:  MOVWF  3A
+00CF:  CALL   065
 ....................          output_low (motorPin.pin_dir); 
-00A0:  MOVF   40,W
-00A1:  MOVWF  42
-00A2:  CLRF   43
-00A3:  CLRF   45
-00A4:  CLRF   44
-00A5:  CALL   035
-00A6:  MOVF   40,W
-00A7:  MOVWF  42
-00A8:  CLRF   43
-00A9:  CLRF   45
-00AA:  MOVLW  80
-00AB:  MOVWF  44
-00AC:  CALL   035
+00D0:  MOVF   36,W
+00D1:  MOVWF  38
+00D2:  CLRF   39
+00D3:  CLRF   3B
+00D4:  CLRF   3A
+00D5:  CALL   065
+00D6:  MOVF   36,W
+00D7:  MOVWF  38
+00D8:  CLRF   39
+00D9:  CLRF   3B
+00DA:  MOVLW  80
+00DB:  MOVWF  3A
+00DC:  CALL   065
 ....................       }break; 
-00AD:  GOTO   0CB
+00DD:  GOTO   0FB
 ....................  
 ....................       case 3: 
 ....................       { 
 ....................          output_high (motorPin.pin_enable); 
-00AE:  MOVF   3F,W
-00AF:  MOVWF  42
-00B0:  MOVLW  01
-00B1:  MOVWF  43
-00B2:  CLRF   45
-00B3:  CLRF   44
-00B4:  CALL   035
-00B5:  MOVF   3F,W
-00B6:  MOVWF  42
-00B7:  CLRF   43
-00B8:  CLRF   45
-00B9:  MOVLW  80
-00BA:  MOVWF  44
-00BB:  CALL   035
+00DE:  MOVF   35,W
+00DF:  MOVWF  38
+00E0:  MOVLW  01
+00E1:  MOVWF  39
+00E2:  CLRF   3B
+00E3:  CLRF   3A
+00E4:  CALL   065
+00E5:  MOVF   35,W
+00E6:  MOVWF  38
+00E7:  CLRF   39
+00E8:  CLRF   3B
+00E9:  MOVLW  80
+00EA:  MOVWF  3A
+00EB:  CALL   065
 ....................          output_high (motorPin.pin_dir); 
-00BC:  MOVF   40,W
-00BD:  MOVWF  42
-00BE:  MOVLW  01
-00BF:  MOVWF  43
-00C0:  CLRF   45
-00C1:  CLRF   44
-00C2:  CALL   035
-00C3:  MOVF   40,W
-00C4:  MOVWF  42
-00C5:  CLRF   43
-00C6:  CLRF   45
-00C7:  MOVLW  80
-00C8:  MOVWF  44
-00C9:  CALL   035
+00EC:  MOVF   36,W
+00ED:  MOVWF  38
+00EE:  MOVLW  01
+00EF:  MOVWF  39
+00F0:  CLRF   3B
+00F1:  CLRF   3A
+00F2:  CALL   065
+00F3:  MOVF   36,W
+00F4:  MOVWF  38
+00F5:  CLRF   39
+00F6:  CLRF   3B
+00F7:  MOVLW  80
+00F8:  MOVWF  3A
+00F9:  CALL   065
 ....................       }break; 
-00CA:  GOTO   0CB
+00FA:  GOTO   0FB
 ....................    } 
 .................... } 
-00CB:  RETLW  00
+00FB:  RETLW  00
 ....................  
 .................... int1 ReceberComando() 
 .................... { 
 ....................    cmd[0]=getc (); 
 *
-0100:  BTFSS  0C.5
-0101:  GOTO   100
-0102:  MOVF   1A,W
-0103:  MOVWF  32
+0049:  BTFSS  0C.5
+004A:  GOTO   049
+004B:  MOVF   1A,W
+004C:  MOVWF  31
 ....................  
 ....................    if (cmd[0]==msg_valid_1)//valida o primeiro comando 
-0104:  MOVF   32,W
-0105:  SUBLW  F0
-0106:  BTFSS  03.2
-0107:  GOTO   119
+004D:  MOVF   31,W
+004E:  SUBLW  F0
+004F:  BTFSS  03.2
+0050:  GOTO   062
 ....................    { 
 ....................       cmd[1]=getc (); 
-0108:  BTFSS  0C.5
-0109:  GOTO   108
-010A:  MOVF   1A,W
-010B:  MOVWF  33
+0051:  BTFSS  0C.5
+0052:  GOTO   051
+0053:  MOVF   1A,W
+0054:  MOVWF  32
 ....................  
 ....................       if (cmd[1]==msg_valid_2)//valida o segundo comando 
-010C:  MOVF   33,W
-010D:  SUBLW  20
-010E:  BTFSS  03.2
-010F:  GOTO   119
+0055:  MOVF   32,W
+0056:  SUBLW  20
+0057:  BTFSS  03.2
+0058:  GOTO   062
 ....................       { 
 ....................          cmd[2]=getc ();//recebe o comando 
-0110:  BTFSS  0C.5
-0111:  GOTO   110
-0112:  MOVF   1A,W
-0113:  MOVWF  34
-....................          Sync(); 
+0059:  BTFSS  0C.5
+005A:  GOTO   059
+005B:  MOVF   1A,W
+005C:  MOVWF  33
+....................          Sync () ; 
 ....................          return 1; 
 *
-0116:  MOVLW  01
-0117:  MOVWF  78
-0118:  GOTO   11B
+005F:  MOVLW  01
+0060:  MOVWF  78
+0061:  GOTO   064
 ....................       } 
 ....................    } 
 ....................  
 ....................    return 0; 
-0119:  MOVLW  00
-011A:  MOVWF  78
+0062:  MOVLW  00
+0063:  MOVWF  78
 .................... } 
-011B:  GOTO   268 (RETURN)
+0064:  GOTO   22B (RETURN)
 ....................  
 .................... void verificaComando(int cmd) 
 .................... { 
 ....................    switch (cmd) 
 ....................    { 
-011C:  MOVF   35,W
-011D:  ADDLW  CC
-011E:  BTFSC  03.0
-011F:  GOTO   1FE
-0120:  ADDLW  34
-0121:  GOTO   1FF
+*
+0104:  MOVF   34,W
+0105:  XORLW  00
+0106:  BTFSC  03.2
+0107:  GOTO   157
+0108:  XORLW  01
+0109:  BTFSC  03.2
+010A:  GOTO   15E
+010B:  XORLW  03
+010C:  BTFSC  03.2
+010D:  GOTO   166
+010E:  XORLW  01
+010F:  BTFSC  03.2
+0110:  GOTO   16E
+0111:  XORLW  13
+0112:  BTFSC  03.2
+0113:  GOTO   176
+0114:  XORLW  01
+0115:  BTFSC  03.2
+0116:  GOTO   17D
+0117:  XORLW  03
+0118:  BTFSC  03.2
+0119:  GOTO   185
+011A:  XORLW  01
+011B:  BTFSC  03.2
+011C:  GOTO   18D
+011D:  XORLW  33
+011E:  BTFSC  03.2
+011F:  GOTO   195
+0120:  XORLW  01
+0121:  BTFSC  03.2
+0122:  GOTO   19C
+0123:  XORLW  03
+0124:  BTFSC  03.2
+0125:  GOTO   1A4
+0126:  XORLW  01
+0127:  BTFSC  03.2
+0128:  GOTO   1AC
+0129:  XORLW  13
+012A:  BTFSC  03.2
+012B:  GOTO   1B4
+012C:  XORLW  01
+012D:  BTFSC  03.2
+012E:  GOTO   1BB
+012F:  XORLW  03
+0130:  BTFSC  03.2
+0131:  GOTO   1C3
+0132:  XORLW  01
+0133:  BTFSC  03.2
+0134:  GOTO   1CB
+0135:  XORLW  93
+0136:  BTFSC  03.2
+0137:  GOTO   1D3
+0138:  XORLW  01
+0139:  BTFSC  03.2
+013A:  GOTO   1D5
+013B:  XORLW  03
+013C:  BTFSC  03.2
+013D:  GOTO   1D8
+013E:  XORLW  01
+013F:  BTFSC  03.2
+0140:  GOTO   1DB
+0141:  XORLW  07
+0142:  BTFSC  03.2
+0143:  GOTO   1DE
+0144:  XORLW  01
+0145:  BTFSC  03.2
+0146:  GOTO   1E1
+0147:  XORLW  03
+0148:  BTFSC  03.2
+0149:  GOTO   1E4
+014A:  XORLW  01
+014B:  BTFSC  03.2
+014C:  GOTO   1E7
+014D:  XORLW  0F
+014E:  BTFSC  03.2
+014F:  GOTO   1EA
+0150:  XORLW  01
+0151:  BTFSC  03.2
+0152:  GOTO   1ED
+0153:  XORLW  03
+0154:  BTFSC  03.2
+0155:  GOTO   1F0
+0156:  GOTO   1F3
 ....................       case 0x00 : 
-0122:  CLRF   29
-0123:  BTFSC  0B.7
-0124:  BSF    29.7
-0125:  BCF    0B.7
 ....................       { 
 ....................          moverMotor (motorpin[0], 0) ; 
-0126:  MOVF   2B,W
-0127:  MOVWF  40
-0128:  MOVF   2A,W
-0129:  MOVWF  3F
-012A:  CLRF   41
-012B:  CALL   055
-012C:  BTFSC  29.7
-012D:  BSF    0B.7
+0157:  MOVF   2A,W
+0158:  MOVWF  36
+0159:  MOVF   29,W
+015A:  MOVWF  35
+015B:  CLRF   37
+015C:  CALL   085
 ....................       }break; 
-012E:  GOTO   1FE
+015D:  GOTO   1F3
 ....................  
 ....................       case 0x01 : 
-012F:  CLRF   29
-0130:  BTFSC  0B.7
-0131:  BSF    29.7
-0132:  BCF    0B.7
 ....................       { 
 ....................          moverMotor (motorpin[0], 1) ; 
-0133:  MOVF   2B,W
-0134:  MOVWF  40
-0135:  MOVF   2A,W
-0136:  MOVWF  3F
-0137:  MOVLW  01
-0138:  MOVWF  41
-0139:  CALL   055
-013A:  BTFSC  29.7
-013B:  BSF    0B.7
+015E:  MOVF   2A,W
+015F:  MOVWF  36
+0160:  MOVF   29,W
+0161:  MOVWF  35
+0162:  MOVLW  01
+0163:  MOVWF  37
+0164:  CALL   085
 ....................       }break; 
-013C:  GOTO   1FE
+0165:  GOTO   1F3
 ....................  
 ....................       case 0x02 : 
-013D:  CLRF   29
-013E:  BTFSC  0B.7
-013F:  BSF    29.7
-0140:  BCF    0B.7
 ....................       { 
 ....................          moverMotor (motorpin[0], 2) ; 
-0141:  MOVF   2B,W
-0142:  MOVWF  40
-0143:  MOVF   2A,W
-0144:  MOVWF  3F
-0145:  MOVLW  02
-0146:  MOVWF  41
-0147:  CALL   055
-0148:  BTFSC  29.7
-0149:  BSF    0B.7
+0166:  MOVF   2A,W
+0167:  MOVWF  36
+0168:  MOVF   29,W
+0169:  MOVWF  35
+016A:  MOVLW  02
+016B:  MOVWF  37
+016C:  CALL   085
 ....................       }break; 
-014A:  GOTO   1FE
+016D:  GOTO   1F3
 ....................  
 ....................       case 0x03 : 
-014B:  CLRF   29
-014C:  BTFSC  0B.7
-014D:  BSF    29.7
-014E:  BCF    0B.7
 ....................       { 
 ....................          moverMotor (motorpin[0], 3) ; 
-014F:  MOVF   2B,W
-0150:  MOVWF  40
-0151:  MOVF   2A,W
-0152:  MOVWF  3F
-0153:  MOVLW  03
-0154:  MOVWF  41
-0155:  CALL   055
-0156:  BTFSC  29.7
-0157:  BSF    0B.7
+016E:  MOVF   2A,W
+016F:  MOVWF  36
+0170:  MOVF   29,W
+0171:  MOVWF  35
+0172:  MOVLW  03
+0173:  MOVWF  37
+0174:  CALL   085
 ....................       }break; 
-0158:  GOTO   1FE
+0175:  GOTO   1F3
 ....................  
 ....................       case 0x10 : 
-0159:  CLRF   29
-015A:  BTFSC  0B.7
-015B:  BSF    29.7
-015C:  BCF    0B.7
 ....................       { 
 ....................          moverMotor (motorpin[1], 0) ; 
-015D:  MOVF   2D,W
-015E:  MOVWF  40
-015F:  MOVF   2C,W
-0160:  MOVWF  3F
-0161:  CLRF   41
-0162:  CALL   055
-0163:  BTFSC  29.7
-0164:  BSF    0B.7
+0176:  MOVF   2C,W
+0177:  MOVWF  36
+0178:  MOVF   2B,W
+0179:  MOVWF  35
+017A:  CLRF   37
+017B:  CALL   085
 ....................       }break; 
-0165:  GOTO   1FE
+017C:  GOTO   1F3
 ....................  
 ....................       case 0x11 : 
-0166:  CLRF   29
-0167:  BTFSC  0B.7
-0168:  BSF    29.7
-0169:  BCF    0B.7
 ....................       { 
 ....................          moverMotor (motorpin[1], 1) ; 
-016A:  MOVF   2D,W
-016B:  MOVWF  40
-016C:  MOVF   2C,W
-016D:  MOVWF  3F
-016E:  MOVLW  01
-016F:  MOVWF  41
-0170:  CALL   055
-0171:  BTFSC  29.7
-0172:  BSF    0B.7
+017D:  MOVF   2C,W
+017E:  MOVWF  36
+017F:  MOVF   2B,W
+0180:  MOVWF  35
+0181:  MOVLW  01
+0182:  MOVWF  37
+0183:  CALL   085
 ....................       }break; 
-0173:  GOTO   1FE
+0184:  GOTO   1F3
 ....................  
 ....................       case 0x12 : 
-0174:  CLRF   29
-0175:  BTFSC  0B.7
-0176:  BSF    29.7
-0177:  BCF    0B.7
 ....................       { 
 ....................          moverMotor (motorpin[1], 2) ; 
-0178:  MOVF   2D,W
-0179:  MOVWF  40
-017A:  MOVF   2C,W
-017B:  MOVWF  3F
-017C:  MOVLW  02
-017D:  MOVWF  41
-017E:  CALL   055
-017F:  BTFSC  29.7
-0180:  BSF    0B.7
+0185:  MOVF   2C,W
+0186:  MOVWF  36
+0187:  MOVF   2B,W
+0188:  MOVWF  35
+0189:  MOVLW  02
+018A:  MOVWF  37
+018B:  CALL   085
 ....................       }break; 
-0181:  GOTO   1FE
+018C:  GOTO   1F3
 ....................  
 ....................       case 0x13 : 
-0182:  CLRF   29
-0183:  BTFSC  0B.7
-0184:  BSF    29.7
-0185:  BCF    0B.7
 ....................       { 
 ....................          moverMotor (motorpin[1], 3) ; 
-0186:  MOVF   2D,W
-0187:  MOVWF  40
-0188:  MOVF   2C,W
-0189:  MOVWF  3F
-018A:  MOVLW  03
-018B:  MOVWF  41
-018C:  CALL   055
-018D:  BTFSC  29.7
-018E:  BSF    0B.7
+018D:  MOVF   2C,W
+018E:  MOVWF  36
+018F:  MOVF   2B,W
+0190:  MOVWF  35
+0191:  MOVLW  03
+0192:  MOVWF  37
+0193:  CALL   085
 ....................       }break; 
-018F:  GOTO   1FE
+0194:  GOTO   1F3
 ....................  
 ....................       case 0x20 : 
-0190:  CLRF   29
-0191:  BTFSC  0B.7
-0192:  BSF    29.7
-0193:  BCF    0B.7
 ....................       { 
 ....................          moverMotor (motorpin[2], 0) ; 
-0194:  MOVF   2F,W
-0195:  MOVWF  40
-0196:  MOVF   2E,W
-0197:  MOVWF  3F
-0198:  CLRF   41
-0199:  CALL   055
-019A:  BTFSC  29.7
-019B:  BSF    0B.7
+0195:  MOVF   2E,W
+0196:  MOVWF  36
+0197:  MOVF   2D,W
+0198:  MOVWF  35
+0199:  CLRF   37
+019A:  CALL   085
 ....................       }break; 
-019C:  GOTO   1FE
+019B:  GOTO   1F3
 ....................  
 ....................       case 0x21 : 
-019D:  CLRF   29
-019E:  BTFSC  0B.7
-019F:  BSF    29.7
-01A0:  BCF    0B.7
 ....................       { 
 ....................          moverMotor (motorpin[2], 1) ; 
-01A1:  MOVF   2F,W
-01A2:  MOVWF  40
-01A3:  MOVF   2E,W
-01A4:  MOVWF  3F
-01A5:  MOVLW  01
-01A6:  MOVWF  41
-01A7:  CALL   055
-01A8:  BTFSC  29.7
-01A9:  BSF    0B.7
+019C:  MOVF   2E,W
+019D:  MOVWF  36
+019E:  MOVF   2D,W
+019F:  MOVWF  35
+01A0:  MOVLW  01
+01A1:  MOVWF  37
+01A2:  CALL   085
 ....................       }break; 
-01AA:  GOTO   1FE
+01A3:  GOTO   1F3
 ....................  
 ....................       case 0x22 : 
-01AB:  CLRF   29
-01AC:  BTFSC  0B.7
-01AD:  BSF    29.7
-01AE:  BCF    0B.7
 ....................       { 
 ....................          moverMotor (motorpin[2], 2) ; 
-01AF:  MOVF   2F,W
-01B0:  MOVWF  40
-01B1:  MOVF   2E,W
-01B2:  MOVWF  3F
-01B3:  MOVLW  02
-01B4:  MOVWF  41
-01B5:  CALL   055
-01B6:  BTFSC  29.7
-01B7:  BSF    0B.7
+01A4:  MOVF   2E,W
+01A5:  MOVWF  36
+01A6:  MOVF   2D,W
+01A7:  MOVWF  35
+01A8:  MOVLW  02
+01A9:  MOVWF  37
+01AA:  CALL   085
 ....................       }break; 
-01B8:  GOTO   1FE
+01AB:  GOTO   1F3
 ....................  
 ....................       case 0x23 : 
-01B9:  CLRF   29
-01BA:  BTFSC  0B.7
-01BB:  BSF    29.7
-01BC:  BCF    0B.7
 ....................       { 
 ....................          moverMotor (motorpin[2], 3) ; 
-01BD:  MOVF   2F,W
-01BE:  MOVWF  40
-01BF:  MOVF   2E,W
-01C0:  MOVWF  3F
-01C1:  MOVLW  03
-01C2:  MOVWF  41
-01C3:  CALL   055
-01C4:  BTFSC  29.7
-01C5:  BSF    0B.7
+01AC:  MOVF   2E,W
+01AD:  MOVWF  36
+01AE:  MOVF   2D,W
+01AF:  MOVWF  35
+01B0:  MOVLW  03
+01B1:  MOVWF  37
+01B2:  CALL   085
 ....................       }break; 
-01C6:  GOTO   1FE
+01B3:  GOTO   1F3
 ....................  
 ....................       case 0x30 : 
-01C7:  CLRF   29
-01C8:  BTFSC  0B.7
-01C9:  BSF    29.7
-01CA:  BCF    0B.7
 ....................       { 
 ....................          moverMotor (motorpin[3], 0) ; 
-01CB:  MOVF   31,W
-01CC:  MOVWF  40
-01CD:  MOVF   30,W
-01CE:  MOVWF  3F
-01CF:  CLRF   41
-01D0:  CALL   055
-01D1:  BTFSC  29.7
-01D2:  BSF    0B.7
+01B4:  MOVF   30,W
+01B5:  MOVWF  36
+01B6:  MOVF   2F,W
+01B7:  MOVWF  35
+01B8:  CLRF   37
+01B9:  CALL   085
 ....................       }break; 
-01D3:  GOTO   1FE
+01BA:  GOTO   1F3
 ....................  
 ....................       case 0x31 : 
-01D4:  CLRF   29
-01D5:  BTFSC  0B.7
-01D6:  BSF    29.7
-01D7:  BCF    0B.7
 ....................       { 
 ....................          moverMotor (motorpin[3], 1) ; 
-01D8:  MOVF   31,W
-01D9:  MOVWF  40
-01DA:  MOVF   30,W
-01DB:  MOVWF  3F
-01DC:  MOVLW  01
-01DD:  MOVWF  41
-01DE:  CALL   055
-01DF:  BTFSC  29.7
-01E0:  BSF    0B.7
+01BB:  MOVF   30,W
+01BC:  MOVWF  36
+01BD:  MOVF   2F,W
+01BE:  MOVWF  35
+01BF:  MOVLW  01
+01C0:  MOVWF  37
+01C1:  CALL   085
 ....................       }break; 
-01E1:  GOTO   1FE
+01C2:  GOTO   1F3
 ....................  
 ....................       case 0x32 : 
-01E2:  CLRF   29
-01E3:  BTFSC  0B.7
-01E4:  BSF    29.7
-01E5:  BCF    0B.7
 ....................       { 
 ....................          moverMotor (motorpin[3], 2) ; 
-01E6:  MOVF   31,W
-01E7:  MOVWF  40
-01E8:  MOVF   30,W
-01E9:  MOVWF  3F
-01EA:  MOVLW  02
-01EB:  MOVWF  41
-01EC:  CALL   055
-01ED:  BTFSC  29.7
-01EE:  BSF    0B.7
+01C3:  MOVF   30,W
+01C4:  MOVWF  36
+01C5:  MOVF   2F,W
+01C6:  MOVWF  35
+01C7:  MOVLW  02
+01C8:  MOVWF  37
+01C9:  CALL   085
 ....................       }break; 
-01EF:  GOTO   1FE
+01CA:  GOTO   1F3
 ....................  
 ....................       case 0x33 : 
-01F0:  CLRF   29
-01F1:  BTFSC  0B.7
-01F2:  BSF    29.7
-01F3:  BCF    0B.7
 ....................       { 
 ....................          moverMotor (motorpin[3], 3) ; 
-01F4:  MOVF   31,W
-01F5:  MOVWF  40
-01F6:  MOVF   30,W
-01F7:  MOVWF  3F
-01F8:  MOVLW  03
-01F9:  MOVWF  41
-01FA:  CALL   055
-01FB:  BTFSC  29.7
-01FC:  BSF    0B.7
+01CB:  MOVF   30,W
+01CC:  MOVWF  36
+01CD:  MOVF   2F,W
+01CE:  MOVWF  35
+01CF:  MOVLW  03
+01D0:  MOVWF  37
+01D1:  CALL   085
 ....................       }break; 
-01FD:  GOTO   1FE
+01D2:  GOTO   1F3
+....................  
+....................       case 0xA0 : 
+....................       { 
+....................          set_pwm1_duty (0) ; 
+01D3:  CLRF   15
+....................       }break; 
+01D4:  GOTO   1F3
+....................  
+....................       case 0xA1 : 
+....................       { 
+....................          set_pwm1_duty (15) ; 
+01D5:  MOVLW  0F
+01D6:  MOVWF  15
+....................       }break; 
+01D7:  GOTO   1F3
+....................  
+....................       case 0xA2 : 
+....................       { 
+....................          set_pwm1_duty (31) ; 
+01D8:  MOVLW  1F
+01D9:  MOVWF  15
+....................       }break; 
+01DA:  GOTO   1F3
+....................  
+....................       case 0xA3 : 
+....................       { 
+....................          set_pwm1_duty (46) ; 
+01DB:  MOVLW  2E
+01DC:  MOVWF  15
+....................       }break; 
+01DD:  GOTO   1F3
+....................  
+....................       case 0xA4 : 
+....................       { 
+....................          set_pwm1_duty (62) ; 
+01DE:  MOVLW  3E
+01DF:  MOVWF  15
+....................       }break; 
+01E0:  GOTO   1F3
+....................  
+....................       case 0xA5 : 
+....................       { 
+....................          set_pwm1_duty (77) ; 
+01E1:  MOVLW  4D
+01E2:  MOVWF  15
+....................       }break; 
+01E3:  GOTO   1F3
+....................  
+....................       case 0xA6 : 
+....................       { 
+....................          set_pwm1_duty (93) ; 
+01E4:  MOVLW  5D
+01E5:  MOVWF  15
+....................       }break; 
+01E6:  GOTO   1F3
+....................  
+....................       case 0xA7 : 
+....................       { 
+....................          set_pwm1_duty (108) ; 
+01E7:  MOVLW  6C
+01E8:  MOVWF  15
+....................       }break; 
+01E9:  GOTO   1F3
+....................  
+....................       case 0xA8 : 
+....................       { 
+....................          set_pwm1_duty (124) ; 
+01EA:  MOVLW  7C
+01EB:  MOVWF  15
+....................       }break; 
+01EC:  GOTO   1F3
+....................  
+....................       case 0xA9 : 
+....................       { 
+....................          set_pwm1_duty (139) ; 
+01ED:  MOVLW  8B
+01EE:  MOVWF  15
+....................       }break; 
+01EF:  GOTO   1F3
+....................  
+....................       case 0xAA : 
+....................       { 
+....................          set_pwm1_duty (156) ; 
+01F0:  MOVLW  9C
+01F1:  MOVWF  15
+....................       }break; 
+01F2:  GOTO   1F3
 ....................    } 
 .................... } 
-01FE:  GOTO   272 (RETURN)
+01F3:  GOTO   235 (RETURN)
 ....................  
 .................... void desativarAll() 
 .................... { 
 ....................    moverMotor (motorpin[0], 0) ; 
-*
-00D4:  MOVF   2B,W
-00D5:  MOVWF  40
-00D6:  MOVF   2A,W
-00D7:  MOVWF  3F
-00D8:  CLRF   41
-00D9:  CALL   055
 ....................    moverMotor (motorpin[1], 0) ; 
-00DA:  MOVF   2D,W
-00DB:  MOVWF  40
-00DC:  MOVF   2C,W
-00DD:  MOVWF  3F
-00DE:  CLRF   41
-00DF:  CALL   055
 ....................    moverMotor (motorpin[2], 0) ; 
-00E0:  MOVF   2F,W
-00E1:  MOVWF  40
-00E2:  MOVF   2E,W
-00E3:  MOVWF  3F
-00E4:  CLRF   41
-00E5:  CALL   055
 ....................    moverMotor (motorpin[3], 0) ; 
-00E6:  MOVF   31,W
-00E7:  MOVWF  40
-00E8:  MOVF   30,W
-00E9:  MOVWF  3F
-00EA:  CLRF   41
-00EB:  CALL   055
+....................    set_pwm1_duty (0) ; 
 .................... } 
 ....................  
 ....................  
@@ -715,95 +760,105 @@ CCS PCM C Compiler, Version 4.074, 38112               21-mar-14 22:01
 ....................  
 .................... void  TIMER1_isr(void)  
 .................... { 
-....................    desativarAll () ; 
+....................   // desativarAll () ; 
 .................... } 
 ....................  
-00EC:  BCF    0C.0
-00ED:  BCF    0A.3
-00EE:  GOTO   022
+*
+0035:  BCF    0C.0
+0036:  BCF    0A.3
+0037:  GOTO   022
 .................... void main() 
 .................... { 
 *
-0237:  CLRF   04
-0238:  BCF    03.7
-0239:  MOVLW  1F
-023A:  ANDWF  03,F
-023B:  BSF    03.5
-023C:  BSF    0E.3
-023D:  MOVLW  19
-023E:  MOVWF  19
-023F:  MOVLW  A2
-0240:  MOVWF  18
-0241:  MOVLW  90
-0242:  BCF    03.5
-0243:  MOVWF  18
-0244:  MOVLW  07
-0245:  MOVWF  1F
+01F4:  CLRF   04
+01F5:  BCF    03.7
+01F6:  MOVLW  1F
+01F7:  ANDWF  03,F
+01F8:  BSF    03.5
+01F9:  BSF    0E.3
+01FA:  MOVLW  19
+01FB:  MOVWF  19
+01FC:  MOVLW  A2
+01FD:  MOVWF  18
+01FE:  MOVLW  90
+01FF:  BCF    03.5
+0200:  MOVWF  18
+0201:  MOVLW  07
+0202:  MOVWF  1F
 ....................    setup_timer_0 (RTCC_INTERNAL|RTCC_DIV_256); 
-0246:  BSF    03.5
-0247:  MOVF   01,W
-0248:  ANDLW  C0
-0249:  IORLW  07
-024A:  MOVWF  01
+0203:  BSF    03.5
+0204:  MOVF   01,W
+0205:  ANDLW  C0
+0206:  IORLW  07
+0207:  MOVWF  01
 ....................    setup_timer_1 (T1_INTERNAL|T1_DIV_BY_8); 
-024B:  MOVLW  B5
-024C:  BCF    03.5
-024D:  MOVWF  10
-....................    setup_timer_2 (T2_DISABLED, 0, 1) ; 
-024E:  MOVLW  00
-024F:  MOVWF  78
-0250:  MOVWF  12
-0251:  MOVLW  00
-0252:  BSF    03.5
-0253:  MOVWF  12
-....................    setup_comparator (NC_NC_NC_NC); 
-0254:  MOVLW  07
-0255:  BCF    03.5
-0256:  MOVWF  1F
-0257:  BSF    03.5
-0258:  MOVF   05,W
-0259:  MOVLW  03
-025A:  MOVWF  77
-025B:  DECFSZ 77,F
-025C:  GOTO   25B
-025D:  BCF    03.5
-025E:  MOVF   1F,W
-025F:  BCF    0C.6
-....................    setup_vref (FALSE); 
-0260:  BSF    03.5
-0261:  CLRF   1F
+0208:  MOVLW  B5
+0209:  BCF    03.5
+020A:  MOVWF  10
+....................    setup_timer_2(T2_DIV_BY_16,155,1); 
+020B:  MOVLW  00
+020C:  MOVWF  78
+020D:  IORLW  06
+020E:  MOVWF  12
+020F:  MOVLW  9B
+0210:  BSF    03.5
+0211:  MOVWF  12
+....................    setup_ccp1(CCP_PWM); 
+0212:  BCF    06.3
+0213:  BCF    03.5
+0214:  BCF    06.3
+0215:  MOVLW  0C
+0216:  MOVWF  17
+....................    set_pwm1_duty(0); 
+0217:  CLRF   15
+....................    setup_comparator(NC_NC_NC_NC); 
+0218:  MOVLW  07
+0219:  MOVWF  1F
+021A:  BSF    03.5
+021B:  MOVF   05,W
+021C:  MOVLW  03
+021D:  MOVWF  77
+021E:  DECFSZ 77,F
+021F:  GOTO   21E
+0220:  BCF    03.5
+0221:  MOVF   1F,W
+0222:  BCF    0C.6
+....................    setup_vref(FALSE); 
+0223:  BSF    03.5
+0224:  CLRF   1F
 ....................    enable_interrupts (int_TIMER1); 
-0262:  BSF    0C.0
+0225:  BSF    0C.0
 ....................    enable_interrupts (GLOBAL); 
-0263:  MOVLW  C0
-0264:  BCF    03.5
-0265:  IORWF  0B,F
+0226:  MOVLW  C0
+0227:  BCF    03.5
+0228:  IORWF  0B,F
+....................  
 ....................    config (); 
-0266:  GOTO   0EF
+0229:  GOTO   038
 ....................  
 ....................    while (true) 
 ....................    { 
 ....................       if (ReceberComando ()==1) 
-0267:  GOTO   100
-0268:  DECFSZ 78,W
-0269:  GOTO   272
+022A:  GOTO   049
+022B:  DECFSZ 78,W
+022C:  GOTO   235
 ....................       { 
 ....................          output_toggle (led) ; 
-026A:  BSF    03.5
-026B:  BCF    06.3
-026C:  MOVLW  08
-026D:  BCF    03.5
-026E:  XORWF  06,F
+022D:  BSF    03.5
+022E:  BCF    05.2
+022F:  MOVLW  04
+0230:  BCF    03.5
+0231:  XORWF  05,F
 ....................          verificaComando (cmd[2]); 
-026F:  MOVF   34,W
-0270:  MOVWF  35
-0271:  GOTO   11C
+0232:  MOVF   33,W
+0233:  MOVWF  34
+0234:  GOTO   104
 ....................       } 
 ....................    } 
-0272:  GOTO   267
+0235:  GOTO   22A
 .................... } 
 ....................  
-0273:  SLEEP
+0236:  SLEEP
 
 Configuration Fuses:
    Word  1: 3F38   NOWDT NOPUT NOPROTECT NOBROWNOUT MCLR NOLVP INTRC_IO NOCPD
